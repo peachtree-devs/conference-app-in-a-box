@@ -93,8 +93,8 @@ class AppWithAuth extends React.Component {
   render() {
     const AppComponent = withAuthenticator(App, null, null, null, theme)
     return (
-      <View style={styles.appContainer}>
-        {!this.state.signedIn && <Logo />}
+      <View>
+        Sample Test Break
         <AppComponent {...this.props} />
       </View>
     )
