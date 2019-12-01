@@ -48,7 +48,7 @@ class TabNavWithProps extends React.Component {
   static router = TabNavigator.router
   render() {
     return(
-      <TabNavigator screenProps={{...this.props}} {...this.props}  />
+        <TabNavigator screenProps={{...this.props}} {...this.props}  />
     )
   }
 }
@@ -75,40 +75,42 @@ class AppWithAuth extends React.Component {
   state = {
     signedIn: true
   }
-  async componentDidMount() {
-    try {
-      await Auth.currentAuthenticatedUser()
-      this.setState({ signedIn: true })
-    } catch (err) { console.log('user not signed in') }
-    Hub.listen('auth', (data) => {
-      const { payload: { event } } = data
-      if (event === 'signIn') {
-        this.setState({ signedIn: true })
-      }
-      if (event === 'signOut' && this.state.signedIn) {
-        this.setState({ signedIn: false })
-      }
-    })
-  }
+
+  // async componentDidMount() {
+  //   try {
+  //     await Auth.currentAuthenticatedUser()
+  //     this.setState({ signedIn: true })
+  //   } catch (err) { console.log('user not signed in') }
+  //   Hub.listen('auth', (data) => {
+  //     const { payload: { event } } = data
+  //     if (event === 'signIn') {
+  //       this.setState({ signedIn: true })
+  //     }
+  //     if (event === 'signOut' && this.state.signedIn) {
+  //       this.setState({ signedIn: false })
+  //     }
+  //   })
+  // }
+
   render() {
-    const AppComponent = withAuthenticator(App, null, null, null, theme)
+    // const AppComponent = withAuthenticator(App, null, null, null, theme)
     return (
-      <View style={styles.appContainer}>
-        {!this.state.signedIn && <Logo />}
-        <AppComponent {...this.props} />
-      </View>
+        <View style={styles.appContainer}>
+          {!this.state.signedIn && <Logo />}
+          <App {...this.props} />
+        </View>
     )
   }
 }
 
 const Logo = () => (
-  <View style={styles.logoContainer}>
-    <Image
-      style={styles.logo}
-      resizeMode='contain'
-      source={logoLight}
-    />
-  </View>
+    <View style={styles.logoContainer}>
+      <Image
+          style={styles.logo}
+          resizeMode='contain'
+          source={logoLight}
+      />
+    </View>
 )
 
 const styles = StyleSheet.create({
