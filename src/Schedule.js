@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   timeContainer: {
-    backgroundColor: "#ddd",
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderBottomLeftRadius: 15,
@@ -200,8 +199,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20
   },
   name: {
+    fontFamily: typography.medium,
     fontWeight: "bold",
-    fontFamily: typography.primary,
     fontSize: 17,
     marginBottom: 5,
     color: colors.primaryText,

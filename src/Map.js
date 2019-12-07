@@ -29,13 +29,13 @@ export default class Map extends Component {
                 <Marker
                   coordinate={{
                     latitude: 37.78825,
-                    longitude: -122.4324,
+                    longitude: -122.4324
                   }}
                 >
                   <View>
                     <Text style={{
-                      fontSize: 24
-                    }}>🚀</Text>
+                        fontSize: 24
+                      }}>🚀</Text>
                   </View>
                 </Marker>
               </MapView>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   },
   addressHeading: {
     fontSize: 18,
+    fontFamily: typography.medium,
     fontWeight: '500',
     marginBottom: 5,
     color: colors.highlight

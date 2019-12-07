@@ -1,6 +1,6 @@
 {
     "identityPoolName": "rnconfinabox58de14db_identitypool_58de14db",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "openIdLambdaRoleName": "rnconf58de14db_openid_lambda_role",
     "resourceNameTruncated": "rnconf58de14db",
     "userPoolName": "rnconfinabox58de14db_userpool_58de14db",
@@ -15,7 +15,7 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [

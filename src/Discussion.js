@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {AppState, KeyboardAvoidingView, ScrollView, TextInput, StyleSheet, Text, View , Dimensions} from 'react-native';
+import {AppState, KeyboardAvoidingView, ScrollView, TextInput, StyleSheet, Text, View , Dimensions, NetInfo} from 'react-native';
 import { API, graphqlOperation, Auth } from 'aws-amplify'
-import DeviceInfo from 'react-native-device-info'
+import Constants from 'expo-constants'
 
 import { listCommentsByTalkId } from './graphql/queries'
 import { onCreateComment as OnCreateComment } from './graphql/subscriptions'
 import { createComment } from './graphql/mutations'
 import { colors, dimensions, typography } from './theme'
 
-const DEVICE_ID = DeviceInfo.getUniqueID()
+const DEVICE_ID = Constants.installationId
 const { width } = Dimensions.get('window')
 
 export default class Discussion extends Component {
@@ -21,35 +21,39 @@ export default class Discussion extends Component {
   async componentDidMount() {
     this.subscribe()
     AppState.addEventListener('change', this.handleAppStateChange)
-
+    NetInfo.addEventListener('connectionChange', this.netInfoChange);
     const { navigation: { state: { params }}} = this.props
     try {
       const commentData = await API.graphql(
         graphqlOperation(listCommentsByTalkId, {
         talkId: params.id
-     }))
-    const { data: { listCommentsByTalkId: { items }}} = commentData
-    const comments = items.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
-    this.setState({ comments }, () => {
-      setTimeout(() => {
-        this.scroller.current.scrollToEnd({ animated: false })
-      }, 50)
-    })
-
-  } catch (err) {
+      }))
+      const { data: { listCommentsByTalkId: { items }}} = commentData
+      const comments = items.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+      this.setState({ comments }, () => {
+        setTimeout(() => {
+          this.scroller.current.scrollToEnd({ animated: false })
+        }, 50)
+      })
+    } catch (err) {
       console.log('error fetching comments: ', err)
     }
+
     try {
       const { username } = await Auth.currentAuthenticatedUser()
       this.setState({ username })
     } catch (err) { console.log('error fetching user info: ', err)}
+  }
+  componentWillUnmount() {
+    this.unsubscribe()
+    NetInfo.removeEventListener('connectionChange', this.netInfoChange)
   }
   handleAppStateChange = (appState) => {
     if (appState === 'active') {
       this.subscribe()
     }
     if (appState === 'background') {
-      this.setState({ subscribed: false })
+      this.setState({ subscribed: false });
       this.unsubscribe()
     }
   }
@@ -76,12 +80,16 @@ export default class Discussion extends Component {
     this.setState({ subscribed: true })
   }
   unsubscribe = () => {
-    this.subscription.unsubscribe()
+    if (!this.state.subscribed) return
     this.setState({ subscribed: false })
+    this.subscription.unsubscribe()
   }
-  componentWillUnmount() {
-    this.unsubscribe()
-    AppState.removeEventListener('change', this.handleAppStateChange)
+  netInfoChange = state => {
+    if (state.type === 'none') {
+      this.unsubscribe()
+    } else {
+      this.subscribe()
+    }
   }
   createMessage = async () => {
     if (!this.state.message) return
@@ -161,8 +169,8 @@ export default class Discussion extends Component {
 
 const styles = StyleSheet.create({
   input: {
+    width: dimensions.width - 50,
     height: 50,
-    width,
     backgroundColor: '#fff',
     paddingHorizontal: 8,
     fontFamily: typography.primary,
@@ -173,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary
   },
   scrollViewContainer: {
-    flex: 1
+    flex: 1,
   },
   time: {
     color: 'rgba(0, 0, 0, .5)'

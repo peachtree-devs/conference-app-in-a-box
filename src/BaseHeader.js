@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 88
   }
-})
+});
 
 export default BaseHeader

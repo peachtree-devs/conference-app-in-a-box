@@ -4,6 +4,7 @@ const logoLight = require('./assets/logoLight.png')
 
 const dimensions = Dimensions.get('window')
 
+
 const primary = 'rgba(18, 25, 50, 1)'
 const primaryLight = 'rgba(27, 37, 77, 1)'
 const primaryDark = 'rgba(14, 20, 43, 1)'
