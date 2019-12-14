@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, Text } from 'react-native'
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 import { Hub, Auth } from 'aws-amplify'
 // import { withAuthenticator } from 'aws-amplify-react-native'
@@ -43,16 +43,24 @@ const TabNavigator = createBottomTabNavigator({
       return <FontAwesome color={tintColor} size={20} name='user' />
     }
   })
-})
+});
 
 class TabNavWithProps extends React.Component {
   componentDidMount() {
+    this.state = {
+      fontLoaded: false
+    };
+
     Font.loadAsync({
       'Gotham Rounded': require('./assets/fonts/GothamRnd-Light.otf'),
       'GothamRnd Medium': require('./assets/fonts/GothamRnd-Medium.otf'),
       'Gotham Bold': require('./assets/fonts/GothamRnd-Bold.otf')
+    }).then(() => {
+      this.setState({fontLoaded: true});
+
     });
   }
+
   static router = TabNavigator.router
   render() {
     return(
@@ -82,7 +90,8 @@ const theme = {
 class AppWithAuth extends React.Component {
   state = {
     signedIn: true
-  }
+  };
+
   async componentDidMount() {
     try {
       // await Auth.currentAuthenticatedUser()
@@ -103,10 +112,11 @@ class AppWithAuth extends React.Component {
     //removing auth layer
     //to add back, uncomment and change 108 to AppComponent
     return (
+        this.state.fontLoaded ?
       <View style={styles.appContainer}>
         {!this.state.signedIn && <Logo />}
         <App {...this.props} />
-      </View>
+      </View>: <Text style={{"color": "red"}}> "app still loading" </Text>
     )
   }
 }
