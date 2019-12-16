@@ -18,12 +18,10 @@ const Content = createAppContainer(TabNavigator);
 export default class App extends React.Component {
     render() {
         return (
-            <Content/>
+            <Content style={styles.container}/>
         );
     }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
