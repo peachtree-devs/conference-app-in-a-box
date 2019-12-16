@@ -3,7 +3,14 @@ import {ScrollView, TouchableHighlight, Linking, StyleSheet, Text, View} from 'r
 import MapView from 'react-native-maps';
 import { colors, typography, dimensions } from './theme'
 
-import BaseHeader from './BaseHeader'
+import BaseHeader from './BaseHeader';
+
+const GatherSpot = {
+  name: 'The Gathering Spot',
+  latitude: 33.7680333,
+  longitude: -84.4019171,
+  address: '384 Northyards Blvd NW, Atlanta, GA 30313'
+}
 
 export default class Map extends Component {
   openMap = () => {
@@ -20,16 +27,16 @@ export default class Map extends Component {
               <MapView
                 style={styles.mapStyle}
                 initialRegion={{
-                  latitude: 37.78825,
-                  longitude: -122.4324,
+                  latitude: GatherSpot.latitude,
+                  longitude: GatherSpot.longitude,
                   latitudeDelta: 0.0922,
                   longitudeDelta: 0.0421,
                 }}
               >
                 <MapView.Marker
                   coordinate={{
-                    latitude: 37.78825,
-                    longitude: -122.4324
+                    latitude: GatherSpot.latitude,
+                    longitude: GatherSpot.longitude
                   }}
                 >
                   <View>
@@ -44,7 +51,7 @@ export default class Map extends Component {
                 underlayColor='transparent'
               >
                 <View style={styles.addressContainer}>
-                  <Text style={[styles.address, styles.addressHeading]}>AWS Loft</Text>
+                  <Text style={[styles.address, styles.addressHeading]}>The Gathering Spot</Text>
                   <Text style={styles.address}>525 Market St #2</Text>
                   <Text style={styles.address}>San Francisco, CA 94105</Text>
                 </View>

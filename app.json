@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "RenderATL",
+    "name": "app",
     "slug": "renderatl",
     "privacy": "public",
     "sdkVersion": "35.0.0",
