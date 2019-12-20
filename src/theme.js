@@ -1,7 +1,7 @@
 import { Platform, Dimensions } from 'react-native'
 
-const dimensions = Dimensions.get('window')
-const logo = require('./assets/logo.jpg')
+const dimensions = Dimensions.get('window');
+const logo = require('./assets/render-white.png');
 
 const primary = '#000000';
 const primaryLight = '#62C1E9';
@@ -21,17 +21,9 @@ const colors = {
   primaryText
 };
 
-const typography = {
-  primary: "Gotham Rounded",
-  secondary: "Gotham Rounded",
-  medium: "GothamRnd Medium",
-  bold: "Gotham Bold"
-};
-
 
 export {
   colors,
-  typography,
   dimensions,
   logo
 }

@@ -4,7 +4,7 @@ import Carousel from 'react-native-snap-carousel'
 
 import Talk from './Talk'
 import Discussion from './Discussion'
-import { typography, colors, dimensions } from './theme'
+import { colors, dimensions } from './theme'
 
 export default class Pager extends Component {
   static navigationOptions = (props) => ({
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.primaryText,
     textAlign: 'center',
-    fontFamily: typography.primary,
   },
   tabContainer: {
     flexDirection: 'row',

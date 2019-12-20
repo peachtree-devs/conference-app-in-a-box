@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {TouchableHighlight, TextInput, StyleSheet, Text, View} from 'react-native';
 import { Auth } from 'aws-amplify'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { colors, typography, dimensions } from './theme'
+import { colors, dimensions } from './theme'
 import BaseHeader from './BaseHeader'
 
 export default class Profile extends Component {
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.primaryText,
     marginTop: 3,
-    fontFamily: typography.primary,
     fontSize: 13
   },
   input: {
@@ -154,12 +153,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     color: 'rgba(255, 255, 255, .5)',
     fontSize: 18,
-    fontFamily: typography.primary,
     borderBottomColor: colors.highlight
   },
   twitterHandle: {
     color: colors.primaryText,
-    fontFamily: typography.primary,
     fontSize: 18,
     marginLeft: 15
   },
@@ -182,12 +179,10 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 3,
     color: colors.primaryText,
-    fontFamily: typography.primary,
   },
   email: {
     color: colors.primaryText,
     fontSize: 18,
     marginBottom: 10,
-    fontFamily: typography.primar
   }
 });

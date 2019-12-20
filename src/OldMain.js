@@ -6,7 +6,6 @@ import { Hub, Auth } from 'aws-amplify'
 import AmplifyTheme from 'aws-amplify-react-native/src/AmplifyTheme'
 import { FontAwesome } from '@expo/vector-icons'
 import * as Font from 'expo-font';
-
 import Schedule from './Schedule'
 import Profile from './Profile'
 import Map from './Map'
@@ -46,22 +45,7 @@ const TabNavigator = createBottomTabNavigator({
 });
 
 class TabNavWithProps extends React.Component {
-  componentDidMount() {
-    this.state = {
-      fontLoaded: false
-    };
-
-    Font.loadAsync({
-      'Gotham Rounded': require('./assets/fonts/GothamRnd-Light.otf'),
-      'GothamRnd Medium': require('./assets/fonts/GothamRnd-Medium.otf'),
-      'Gotham Bold': require('./assets/fonts/GothamRnd-Bold.otf')
-    }).then(() => {
-      this.setState({fontLoaded: true});
-
-    });
-  }
-
-  static router = TabNavigator.router
+  static router = TabNavigator.router;
   render() {
     return(
       <TabNavigator screenProps={{...this.props}} {...this.props}  />
@@ -69,7 +53,7 @@ class TabNavWithProps extends React.Component {
   }
 }
 
-const App = createAppContainer(TabNavWithProps)
+const App = createAppContainer(TabNavWithProps);
 
 const theme = {
   ...AmplifyTheme,
@@ -95,7 +79,8 @@ class AppWithAuth extends React.Component {
   async componentDidMount() {
     try {
       // await Auth.currentAuthenticatedUser()
-      this.setState({ signedIn: true })
+      this.setState({ signedIn: true ,
+        fontLoaded: false })
     } catch (err) { console.log('user not signed in') }
     Hub.listen('auth', (data) => {
       const { payload: { event } } = data
@@ -106,44 +91,33 @@ class AppWithAuth extends React.Component {
         this.setState({ signedIn: false })
       }
     })
+
   }
-  render() {
+  render(){
     // const AppComponent = withAuthenticator(App, null, null, null, theme)
     //removing auth layer
     //to add back, uncomment and change 108 to AppComponent
     return (
-        this.state.fontLoaded ?
       <View style={styles.appContainer}>
         {!this.state.signedIn && <Logo />}
         <App {...this.props} />
-      </View>: <Text style={{"color": "red"}}> "app still loading" </Text>
+      </View>: null
     )
   }
 }
 
 const Logo = () => (
-  <View style={styles.logoContainer}>
+  <View>
     <Image
-      style={styles.logo}
-      resizeMode='contain'
       source={logo}
     />
   </View>
-)
+);
 
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1
-  },
-  logoContainer: {
-    marginTop: 70,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  logo: {
-    height: 50,
-    width: 200
   }
-})
+});
 
 export default AppWithAuth

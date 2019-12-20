@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, StyleSheet, Text, View, Image} from 'react-native'
-import { dimensions, colors, typography } from './theme'
+import { dimensions, colors } from './theme'
 
 export default class Talk extends Component {
   render() {
@@ -42,29 +42,24 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginTop: 15,
     color: colors.primaryText,
-    fontFamily: typography.medium
   },
   name: {
     fontSize: 26,
     marginBottom: 20,
     marginTop: 20,
     color: colors.highlight,
-    fontFamily: typography.medium,
   },
   speakerName: {
     marginBottom: 5,
     fontSize: 16,
     color: colors.primaryText,
-    fontFamily: typography.medium
   },
   time: {
     color: colors.highlight,
-    fontFamily: typography.medium,
   },
   summary: {
     marginTop: 4,
     color: colors.primaryText,
-    fontFamily: typography.primary,
   },
   speakerBio: {
     color: colors.primaryText,

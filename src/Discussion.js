@@ -6,7 +6,7 @@ import Constants from 'expo-constants'
 import { listCommentsByTalkId } from './graphql/queries'
 import { onCreateComment as OnCreateComment } from './graphql/subscriptions'
 import { createComment } from './graphql/mutations'
-import { colors, dimensions, typography } from './theme'
+import { colors, dimensions} from './theme'
 
 const DEVICE_ID = Constants.installationId
 const { width } = Dimensions.get('window')
@@ -170,10 +170,8 @@ const styles = StyleSheet.create({
   input: {
     width: dimensions.width - 50,
     height: 50,
-    width,
     backgroundColor: '#fff',
     paddingHorizontal: 8,
-    fontFamily: typography.primary,
     fontSize: 16
   },
   container: {
@@ -187,12 +185,10 @@ const styles = StyleSheet.create({
     color: 'rgba(0, 0, 0, .5)'
   },
   message: {
-    fontFamily: typography.primary,
     color: colors.primaryText,
     fontSize: 16
   },
   createdBy: {
-    fontFamily: typography.primary,
     color: colors.highlight,
     marginTop: 4
   },

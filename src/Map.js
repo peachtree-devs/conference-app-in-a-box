@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {ScrollView, TouchableHighlight, Linking, StyleSheet, Text, View} from 'react-native';
 import MapView from 'react-native-maps';
-import { colors, typography, dimensions } from './theme'
+import { colors, dimensions } from './theme'
 
 import BaseHeader from './BaseHeader';
+import * as Font from "expo-font";
 
 const GatherSpot = {
   name: 'The Gathering Spot',
@@ -13,10 +14,13 @@ const GatherSpot = {
 }
 
 export default class Map extends Component {
+
+
   openMap = () => {
     Linking.openURL('https://goo.gl/maps/DNrmyCTQPDC5RkHc9')
       .catch((err) => console.error('An error occurred', err));
-  }
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -41,7 +45,8 @@ export default class Map extends Component {
                 >
                   <View>
                     <Text style={{
-                        fontSize: 24
+                        fontSize: 24,
+                      fontFamily: "Barlow Black"
                       }}>🚀</Text>
                   </View>
                 </MapView.Marker>
@@ -51,7 +56,7 @@ export default class Map extends Component {
                 underlayColor='transparent'
               >
                 <View style={styles.addressContainer}>
-                  <Text style={[styles.address, styles.addressHeading]}>The Gathering Spot</Text>
+                  <Text >The Gathering Spot</Text>
                   <Text style={styles.address}>525 Market St #2</Text>
                   <Text style={styles.address}>San Francisco, CA 94105</Text>
                 </View>
@@ -77,11 +82,9 @@ const styles = StyleSheet.create({
     color: colors.primaryText,
     fontSize: 18,
     marginBottom: 4,
-    fontFamily: typography.primary
   },
   addressHeading: {
     fontSize: 18,
-    fontFamily: typography.medium,
     marginBottom: 5,
     color: colors.highlight
   },

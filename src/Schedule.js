@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {ActivityIndicator, Image, ScrollView, TouchableHighlight, TouchableOpacity, StyleSheet, Text, View} from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 import Pager from './Pager'
-import { colors, typography, dimensions, logo } from './theme'
+import { colors, dimensions, logo } from './theme'
 
 import { API, graphqlOperation } from 'aws-amplify'
 import { listTalks } from './graphql/queries'
@@ -138,7 +138,6 @@ const styles = StyleSheet.create({
   },
   bottomButtonText: {
     color: colors.highlight,
-    fontFamily: typography.primary,
   },
   tabBottomContainer: {
     flexDirection: 'row',
@@ -184,7 +183,6 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   timeContainer: {
-    backgroundColor: "#ddd",
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderBottomLeftRadius: 15,
@@ -193,14 +191,12 @@ const styles = StyleSheet.create({
   },
   talkTime: {
     color: colors.primaryText,
-    fontFamily: typography.primary,
   },
   infoContainer: {
     flex: 8,
     paddingLeft: 20
   },
   name: {
-    fontFamily: typography.medium,
     fontSize: 17,
     marginBottom: 5,
     color: colors.primaryText,
@@ -219,6 +215,5 @@ const styles = StyleSheet.create({
   speakerName: {
     fontSize: 14,
     color: colors.primaryText,
-    fontFamily: typography.primary,
   }
 });
