@@ -45,8 +45,7 @@ export default class Map extends Component {
                 >
                   <View>
                     <Text style={{
-                        fontSize: 24,
-                      fontFamily: "Barlow Black"
+                        fontSize: 24
                       }}>🚀</Text>
                   </View>
                 </MapView.Marker>
