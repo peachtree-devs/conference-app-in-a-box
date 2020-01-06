@@ -12,7 +12,8 @@ import Profile from './Profile'
 import Map from './Map'
 
 import { colors, logo } from './theme'
-
+import {TabNavigatorComponent} from './Navigation/TabNavigator';
+//
 const TabNavigator = createBottomTabNavigator({
   Schedule: {
     screen: Schedule
@@ -61,7 +62,7 @@ class TabNavWithProps extends React.Component {
     });
   }
 
-  static router = TabNavigator.router
+  static router = TabNavigator.router;
   render() {
     return(
       <TabNavigator screenProps={{...this.props}} {...this.props}  />
@@ -69,23 +70,7 @@ class TabNavWithProps extends React.Component {
   }
 }
 
-const App = createAppContainer(TabNavWithProps)
-
-const theme = {
-  ...AmplifyTheme,
-  button: {
-    ...AmplifyTheme.button,
-    backgroundColor: colors.primaryLight
-  },
-  sectionFooterLink: {
-    ...AmplifyTheme.sectionFooterLink,
-    color: colors.primaryLight
-  },
-  buttonDisabled: {
-    ...AmplifyTheme.buttonDisabled,
-    backgroundColor: colors.primaryOpaque(0.6)
-  }
-}
+const App = createAppContainer(TabNavWithProps);
 
 class AppWithAuth extends React.Component {
   state = {

@@ -1,22 +1,54 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 import Schedule from '../Schedule';
 import Profile from '../Profile';
 import Map from '../Map';
-import {colors} from '../theme';
-import {FontAwesome} from '@expo/vector-icons';
+import {View} from 'react-native';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import {Screens} from '../Screens/constants';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const TabNavigator = createMaterialBottomTabNavigator(
     {
-        Schedule: Schedule,
-        Profile: Profile,
-        Location: Map
+        Schedule: {
+            screen: Schedule,
+            navigationOptions: {
+                tabBarLabel: Screens.SCHEDULE,
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-home'}/>
+                    </View>
+                )
+            }
+        },
+        Profile: {
+            screen: Profile,
+            navigationOptions: {
+                tabBarLabel: Screens.PROFILE,
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-contact'}/>
+                    </View>
+                )
+            }
+        },
+        Location: {
+            screen: Map,
+            navigationOptions: {
+                tabBarLabel: Screens.MAP,
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-map'}/>
+                    </View>
+                )
+            }
+        }
     },
     {
-        initialRouteName: 'Schedule',
-        activeTintColor: '#f4511e',
+        initialRouteName: Screens.SCHEDULE,
+        activeColor: '#ffffff',
         inactiveTintColor: '#bbb',
-        barStyle: {backgroundColor: '#FFDAB9'},
+        barStyle: { backgroundColor: '#669277' },
+        shifting: true
     }
 );

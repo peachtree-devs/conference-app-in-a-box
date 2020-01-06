@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {ActivityIndicator, Image, ScrollView, TouchableHighlight, TouchableOpacity, StyleSheet, Text, View} from 'react-native'
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 import Pager from './Pager'
 import { colors, typography, dimensions, logo } from './theme'
 
@@ -54,7 +54,7 @@ class Schedule extends Component {
           {
             talkData.map((talk, i) => (
               <TouchableOpacity
-                key={i} 
+                key={i}
                 onPress={
                   () => this.props.navigation.push('Talk', talk)
                 }
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopColor: "rgba(255, 255, 255, .2)",
     borderBottomColor: "rgba(255, 255, 255, .2)",
-    left: 0, 
+    left: 0,
     bottom: -1
   },
   listContainer: {
