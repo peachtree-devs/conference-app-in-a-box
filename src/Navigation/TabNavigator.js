@@ -42,6 +42,17 @@ export const TabNavigator = createMaterialBottomTabNavigator(
                     </View>
                 )
             }
+        },
+        CheckIn: {
+            screen: Map,
+            navigationOptions: {
+                tabBarLabel: Screens.CHECKIN,
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-card'}/>
+                    </View>
+                )
+            }
         }
     },
     {

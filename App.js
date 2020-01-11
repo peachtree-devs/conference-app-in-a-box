@@ -1,7 +1,7 @@
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { YellowBox } from 'react-native'
 import { colors } from './src/theme';
 import { createAppContainer } from "react-navigation";
