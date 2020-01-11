@@ -70,3 +70,6 @@ awsconfiguration.json
 
 .expo
 web-build
+
+yarn-error.log
+yarn.lock

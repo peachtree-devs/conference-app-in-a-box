@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {ScrollView, TouchableHighlight, Linking, StyleSheet, Text, View} from 'react-native';
 import MapView from 'react-native-maps';
 import { colors, typography, dimensions } from './theme'
-
-import BaseHeader from './BaseHeader';
+import BaseHeader from './components/BaseHeader';
 
 const GatherSpot = {
   name: 'The Gathering Spot',
