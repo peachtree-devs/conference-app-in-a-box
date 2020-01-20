@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Schedule from '../Schedule';
 import Profile from '../Profile';
 import Map from '../Map';
 import {View} from 'react-native';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import {Screens} from '../Screens/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ScheduleScreen from '../Screens/Schedule/Schedule';
 
 export const TabNavigator = createMaterialBottomTabNavigator(
     {
         Schedule: {
-            screen: Schedule,
+            screen: ScheduleScreen,
             navigationOptions: {
                 tabBarLabel: Screens.SCHEDULE,
                 tabBarIcon: ({ tintColor }) => (
@@ -42,13 +42,25 @@ export const TabNavigator = createMaterialBottomTabNavigator(
                     </View>
                 )
             }
+        },
+        CheckIn: {
+            screen: Map,
+            navigationOptions: {
+                tabBarLabel: Screens.CHECKIN,
+                tabBarIcon: ({ tintColor }) => (
+                    <View>
+                        <Icon style={[{color: tintColor}]} size={25} name={'ios-card'}/>
+                    </View>
+                )
+            }
         }
     },
     {
         initialRouteName: Screens.SCHEDULE,
+        labeled: true,
         activeColor: '#ffffff',
         inactiveTintColor: '#bbb',
         barStyle: { backgroundColor: '#669277' },
-        shifting: true
+        shifting: false
     }
 );
