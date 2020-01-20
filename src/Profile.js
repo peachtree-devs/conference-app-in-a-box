@@ -3,7 +3,7 @@ import {TouchableHighlight, TextInput, StyleSheet, Text, View} from 'react-nativ
 import { Auth } from 'aws-amplify'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { colors, typography, dimensions } from './theme'
-import BaseHeader from './BaseHeader'
+import BaseHeader from './components/BaseHeader';
 
 export default class Profile extends Component {
   state = {
