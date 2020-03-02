@@ -4,7 +4,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { YellowBox } from 'react-native'
 import { colors } from './src/theme';
-import { createAppContainer } from "react-navigation";
+import { createAppContainer } from 'react-navigation';
 import { TabNavigator } from './src/Navigation/TabNavigator';
 
 // Amplify.configure(config)

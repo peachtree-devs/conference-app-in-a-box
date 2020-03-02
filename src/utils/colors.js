@@ -1,7 +1,8 @@
 const white = '#fff';
 const black = '#000';
 
-export const colors = {
+export const Colors = {
     white,
     black
 };
+

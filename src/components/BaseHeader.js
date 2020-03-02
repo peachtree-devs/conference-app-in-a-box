@@ -3,7 +3,7 @@ import { Header } from "react-native-elements";
 import React from 'react';
 import HamburgerMenu from './HamburgerMenu';
 import RenderLogo from './RenderLogo';
-import {colors} from '../utils/colors';
+import {Colors, colors} from '../utils/colors';
 
 class BaseHeader extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class BaseHeader extends React.Component {
                 leftComponent={<HamburgerMenu/>}
                 centerComponent={<RenderLogo/>}
                 containerStyle={{
-                    backgroundColor: colors.black,
+                    backgroundColor: Colors.black,
                     borderBottomWidth: 0
                 }}
             />

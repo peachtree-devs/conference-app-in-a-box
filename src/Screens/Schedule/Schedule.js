@@ -1,14 +1,15 @@
 import React from 'react'
 import {MockData, ScheduleDays} from './constants';
-import {StyleSheet, ScrollView, View, Image, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, ScrollView, View} from 'react-native';
 import ScheduleNavigator from '../../Navigation/ScheduleNavigator';
-import BaseHeader from '../../BaseHeader';
 import {
     Card,
     CardTitle,
     CardContent,
 } from 'react-native-material-cards';
 import {fakeAvatar} from '../../theme';
+import BaseHeader from '../../components/BaseHeader';
+import {Theme} from '../../utils/themes';
 
 class ScheduleScreen extends React.Component {
     state = {
@@ -57,7 +58,7 @@ class ScheduleScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#7c7c7c',
+        backgroundColor: Theme.backgroundColor,
         flex: 1
     },
     scrollContainer: {

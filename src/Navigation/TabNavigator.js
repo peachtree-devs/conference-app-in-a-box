@@ -7,6 +7,7 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import {Screens} from '../Screens/constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ScheduleScreen from '../Screens/Schedule/Schedule';
+import User from '../Screens/User/User';
 
 export const TabNavigator = createMaterialBottomTabNavigator(
     {
@@ -22,7 +23,7 @@ export const TabNavigator = createMaterialBottomTabNavigator(
             }
         },
         Profile: {
-            screen: Profile,
+            screen: User,
             navigationOptions: {
                 tabBarLabel: Screens.PROFILE,
                 tabBarIcon: ({ tintColor }) => (
@@ -56,7 +57,7 @@ export const TabNavigator = createMaterialBottomTabNavigator(
         }
     },
     {
-        initialRouteName: Screens.SCHEDULE,
+        initialRouteName: Screens.PROFILE,
         labeled: true,
         activeColor: '#ffffff',
         inactiveTintColor: '#bbb',
