@@ -1,5 +1,6 @@
-import Amplify from 'aws-amplify'
-import config from './aws-exports'
+import Amplify from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react-native';
+import config from './aws-exports';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { YellowBox } from 'react-native'
@@ -7,7 +8,7 @@ import { colors } from './src/theme';
 import { createAppContainer } from 'react-navigation';
 import { TabNavigator } from './src/Navigation/TabNavigator';
 
-// Amplify.configure(config)
+Amplify.configure(config);
 YellowBox.ignoreWarnings([
   'Possible Unhandled Promise Rejection',
   'Remote debugger'

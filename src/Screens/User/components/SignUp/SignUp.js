@@ -14,11 +14,8 @@ export default class SignUpUser extends Component {
                     type="password"
                     clearTextOnFocus={true}/>
                 <View style={styles.buttonContainer}>
-                    <Button style={styles.actionButtons}
-                        title="Sign Up"
-                    />
-                    <Button
-                        title="Log In"
+                    <Button buttonStyle={styles.actionButtons}
+                        title="Save User"
                     />
                 </View>
             </View>
@@ -41,7 +38,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         alignItems: 'center',
-        justifyContent: "space-between"
+        justifyContent: "flex-end"
     },
     actionButtons: {
         backgroundColor: '#87ecff'

@@ -45,7 +45,7 @@ export const TabNavigator = createMaterialBottomTabNavigator(
             }
         },
         CheckIn: {
-            screen: Map,
+            screen: Profile,
             navigationOptions: {
                 tabBarLabel: Screens.CHECKIN,
                 tabBarIcon: ({ tintColor }) => (
