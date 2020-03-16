@@ -18,11 +18,7 @@ class ScheduleScreen extends React.Component {
         loading: false
     }
 
-    toggleDate(date) {
-
-    }
-
-    async componentDidMount() {
+    componentDidMount() {
         // Retrieve Talks from Amplify
     }
 

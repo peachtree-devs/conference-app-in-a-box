@@ -1,6 +1,7 @@
 export const Screens = {
     CHECKIN:'Check In',
-    SCHEDULE: 'Schedule',
+    LANDING: 'Landing',
     MAP: 'Map',
-    PROFILE: 'Profile'
+    PROFILE: 'Profile',
+    SCHEDULE: 'Schedule'
 };

@@ -24,6 +24,7 @@
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-elements": "^1.2.7",
+    "react-native-fbsdk": "^1.1.2",
     "react-native-maps": "latest",
     "react-native-material-cards": "^1.0.9",
     "react-native-material-textfield": "^0.16.1",

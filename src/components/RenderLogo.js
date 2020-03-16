@@ -1,7 +1,9 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
-const renderLogo = require('../assets/renderAtlLogo.png');
+export const renderLogo = require('../assets/renderAtlLogo.png');
+export const landingLogo = require('../assets/renderAtl-Landing.png');
+export const facebookLogo = require('../assets/facebook.png');
 
 class RenderLogo extends React.Component {
     render() {

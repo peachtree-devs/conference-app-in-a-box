@@ -1,12 +1,12 @@
 import Amplify from 'aws-amplify';
-import { withAuthenticator } from 'aws-amplify-react-native';
+import { createAppContainer } from 'react-navigation';
 import config from './aws-exports';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { YellowBox } from 'react-native'
-import { colors } from './src/theme';
-import { createAppContainer } from 'react-navigation';
+
 import { TabNavigator } from './src/Navigation/TabNavigator';
+import {AppNavigator} from './src/Navigation/RouteNavigator';
 
 Amplify.configure(config);
 YellowBox.ignoreWarnings([
@@ -14,7 +14,7 @@ YellowBox.ignoreWarnings([
   'Remote debugger'
 ]);
 
-const Content = createAppContainer(TabNavigator);
+const Content = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
     render() {
@@ -27,7 +27,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.primaryLight,
+    // backgroundColor: colors.primaryLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
