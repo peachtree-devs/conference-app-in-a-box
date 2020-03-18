@@ -1,16 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet, ImageBackground, Image, Button, TouchableOpacity} from 'react-native';
 import {facebookLogo, landingLogo} from '../../components/RenderLogo';
-import { LoginButton } from 'react-native-fbsdk';
-import {deviceWidth} from '../../utils/themes';
+import {Screens} from '../constants';
 
 class LandingScreen extends React.Component {
-    state = null;
-
-    componentDidMount() {
-
-    }
-
     render() {
         const { navigate } = this.props.navigation;
 
@@ -19,7 +12,7 @@ class LandingScreen extends React.Component {
                 style={styles.container}
                 source={require('../../assets/atlanta.jpg')}
                 resizeMode='cover'>
-                <TouchableOpacity onPress={() => navigate('Profile')} style={styles.guestButton}>
+                <TouchableOpacity onPress={() => navigate(Screens.RENDER)} style={styles.guestButton}>
                     <Text style={styles.guestText}>Explore as Guest</Text>
                 </TouchableOpacity>
                 <View style={styles.landingHeader}>
@@ -111,7 +104,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#669277',
-        width: '45%',
+        width: '49%',
         textAlign: 'center',
         padding: 20,
         marginLeft: 20,

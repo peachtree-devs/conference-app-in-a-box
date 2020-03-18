@@ -5,7 +5,7 @@ import BaseHeader from '../../components/BaseHeader';
 import {Colors} from '../../utils/colors';
 import SignUpUser from './components/SignUp/SignUp';
 
-export default class User extends Component {
+class UserScreen extends Component {
     state = {
         user: null
     }
@@ -40,3 +40,5 @@ const styles = StyleSheet.create({
         color: Colors.white
     }
 });
+
+export default UserScreen;

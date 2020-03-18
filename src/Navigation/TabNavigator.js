@@ -57,7 +57,6 @@ export const TabNavigator = createMaterialBottomTabNavigator(
         }
     },
     {
-        initialRouteName: Screens.PROFILE,
         labeled: true,
         activeColor: '#ffffff',
         inactiveTintColor: '#bbb',
