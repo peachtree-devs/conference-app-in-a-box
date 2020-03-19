@@ -4,5 +4,6 @@ export const Screens = {
     RENDER: 'Render',
     MAP: 'Map',
     PROFILE: 'Profile',
-    SCHEDULE: 'Schedule'
+    SCHEDULE: 'Schedule',
+    SIGN_UP: 'SignUp'
 };

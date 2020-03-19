@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import LandingScreen from '../Screens/Landing/Landing';
 import { TabNavigator } from './TabNavigator';
 import { Screens } from '../Screens/constants';
-import UserScreen from '../Screens/User/User';
+import SignUpScreen from '../Screens/SignUp/SignUp';
 
 const RenderScreen = createAppContainer(TabNavigator);
 
@@ -14,8 +14,8 @@ export const AppNavigator = createStackNavigator({
     Render: {
         screen: RenderScreen
     },
-    Login: {
-        screen: UserScreen
+    SignUp: {
+        screen: SignUpScreen
     }
 },
 {

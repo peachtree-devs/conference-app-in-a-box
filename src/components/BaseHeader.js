@@ -1,9 +1,8 @@
-import { StyleSheet } from 'react-native';
 import { Header } from "react-native-elements";
 import React from 'react';
 import HamburgerMenu from './HamburgerMenu';
 import RenderLogo from './RenderLogo';
-import {Colors, colors} from '../utils/colors';
+import { Colors } from '../utils/colors';
 
 class BaseHeader extends React.Component {
     render() {

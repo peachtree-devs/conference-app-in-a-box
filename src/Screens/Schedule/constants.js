@@ -1,14 +1,14 @@
 export const ScheduleDays = {
     Day1: {
-        date: 'May 4th',
+        date: 'Aug 24th',
         workshop: true
     },
     Day2: {
-        date: 'May 5th',
+        date: 'Aug 25th',
         workshop: false
     },
     Day3: {
-        date: 'May 6th',
+        date: 'Aug 26th',
         workshop: false
     }
 }

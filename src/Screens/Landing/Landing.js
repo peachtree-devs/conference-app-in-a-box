@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, ImageBackground, Image, Button, TouchableOpacity} from 'react-native';
 import {facebookLogo, landingLogo} from '../../components/RenderLogo';
 import {Screens} from '../constants';
+import {Colors} from '../../utils/colors';
 
 class LandingScreen extends React.Component {
     render() {
@@ -16,7 +17,7 @@ class LandingScreen extends React.Component {
                     <Text style={styles.guestText}>Explore as Guest</Text>
                 </TouchableOpacity>
                 <View style={styles.landingHeader}>
-                    <Text style={styles.landingTitle}>
+                    <Text style={[styles.landingTitle]}>
                         Render ATL
                     </Text>
                     <Image
@@ -33,14 +34,14 @@ class LandingScreen extends React.Component {
                     />
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity
-                            style={styles.button}
+                            style={[styles.button, styles.loginButton]}
                             onPress={this.onPress}
                         >
                             <Text style={styles.buttonText}>Login</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={styles.button}
-                            onPress={this.onPress}
+                            style={[styles.button, styles.signUpButton]}
+                            onPress={() => navigate(Screens.SIGN_UP)}
                         >
                             <Text style={styles.buttonText}>Sign Up</Text>
                         </TouchableOpacity>
@@ -103,18 +104,24 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly'
     },
     button: {
-        backgroundColor: '#669277',
         width: '49%',
         textAlign: 'center',
         padding: 20,
         marginLeft: 20,
-        marginRight: 20
+        marginRight: 20,
+    },
+    loginButton: {
+        backgroundColor: '#fdde3a'
+    },
+    signUpButton: {
+        backgroundColor: '#fd7d3a'
     },
     buttonText: {
         textAlign: 'center',
-        color: 'white',
         fontWeight: 'bold',
-        fontSize: 15
+        fontFamily: 'sans-serif',
+        color: 'white',
+        fontSize: 20
     }
 });
 

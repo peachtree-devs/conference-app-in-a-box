@@ -33,7 +33,7 @@ export default class Profile extends Component {
       })
   }
   render() {
-    const buttonText = this.state.isEditing ? 'Save' : 'Edit User'
+    const buttonText = this.state.isEditing ? 'Save' : 'Edit SignUp'
     return (
       <View style={styles.container}>
         <BaseHeader />
